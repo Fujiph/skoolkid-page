@@ -1,1 +1,1 @@
-# skoolkid-landing
+# skoolkid-page
