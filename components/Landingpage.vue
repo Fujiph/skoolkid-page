@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div v-if="!$vuetify.breakpoint.mobile">
-        <div style="position: relative;" fluid>
+    <!-- top of page -->
+    <div v-if="!$vuetify.breakpoint.mobile" style="position: absloute;" fluid>
             <v-container style="position: absolute; z-index: 1" fluid>
                 <v-alert width=100%  color="#DB2C27" class='top'>
                     <h4 class="white--text">เข้าร่วมกิจกรรม Workshop เพื่อร่วมเป็นหนึ่งในการพัฒนานวัตกรรมการศึกษา <u>คลิกที่นี่</u></h4>
@@ -20,28 +20,37 @@
                         </v-col>
                         <v-col cols="2"/>
                         <v-col class="tabs" cols="1">
-                            <p>เข้าร่วมควิช</p>
+                            <h5>เข้าร่วมควิช</h5>
                         </v-col>
                         <v-col cols="1">
                             <v-btn color="#DB2C27" class="rounded-lg" large dark>เข้าสู่ระบบ</v-btn>
                         </v-col>
                         <v-col cols="1">
-                            <v-btn class="ma-2" outlined color="white">En</v-btn>
+                            <v-btn class="ma-5" outlined color="white">En</v-btn>
                         </v-col>
                     </v-row>
                 </v-container>
-                <v-container justify="center">
+                <v-container class="space">
                     <v-row>
-                        <v-col class="white--text" align="center">
-                            <h1>SKOOLKIT จะทำให้ทุกคนในชั้นเรียน<br>มีส่วนร่วมในการเรียนรู้</h1>
-                            <h4>เพราะเราเชื่อว่า " การเรียนรู้ที่ดีที่สุดคือการมีส่วนร่วมในการเรียนรู้ "</h4>
-                            <v-btn color="#DB2C27" class="rounded-lg" large dark>ทดลองใช้งานฟรี</v-btn>
-                            <v-btn class="ma-2 rounded-lg" outlined color="white" large>ดูวีดีโอ</v-btn>
+                        <v-col align="center">
+                            <v-container class="white--text text-center">
+                                <div class="bigfont">
+                                    <p>SKOOLKIT จะทำให้ทุกคนในชั้นเรียน<br>มีส่วนร่วมในการเรียนรู้</p>
+                                </div>
+                                <h2>เพราะเราเชื่อว่า " การเรียนรู้ที่ดีที่สุดคือการมีส่วนร่วมในการเรียนรู้ "</h2>
+                            </v-container>
+                            <v-conatiner>
+                                    <v-btn color="#DB2C27" class="rounded-lg" x-large dark>ทดลองใช้งานฟรี</v-btn>
+                                    <v-btn class="ma-2 rounded-lg" outlined color="white" width="auto" x-large>
+                                    <v-icon left>mdi-play-outline</v-icon>
+                                        ดูวีดีโอ
+                                    </v-btn>
+                            </v-conatiner>
                         </v-col>
                     </v-row>
                 </v-container>
             </v-container>
-        </div>
+
         <video src="/public/video1.mov" style="position: relative;" width=100% autoplay/>
     </div>
     <div v-else> <!-- for mobile -->
@@ -53,13 +62,7 @@
                 <v-container>
                     <img src="/public/logocut.png" width="100%" />
                     <v-row align="center">
-                        <v-col>
-                            <p class="tabs">คุณสมบัติ</p>
-                            <br>
-                            <p class="tabs">บทความ</p>
-                            <br>
-                            <p class="tabs">ทดลองการใช้งาน</p>
-                        </v-col>
+        
                         <v-col />
                         <v-col>
                             <p class="tabs">เข้าร่วมควิช</p>
@@ -87,32 +90,34 @@
 
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile" class="d-flex">
-            <v-row>
+            <v-row align="center" justify="center">
                 <v-col v-for="item in pic" :key="item" >
-                        <v-img :src="item.img" max-width="95" />
+                        <v-img :src="item.img" max-width="120" class="ma-3" />
                 </v-col>
             </v-row>
         </div>
         <div v-else>
-            <v-row align="center" justify="center">
-                <v-col v-for="item in pic" :key="item">
-                    <v-img :src="item.img" max-width="95" />
+            <v-row class="d-flex text-center mt-1" justify="center" align="center">
+                <v-col v-for="item in pic" :key="item" cols="1">
+                    <v-img :src="item.img" max-width="100%" />
                 </v-col>
             </v-row>
         </div>
     </v-container>
-    <v-container class="text-center">
+
+    <v-container class="text-center mt-5">
         <strong>
         <h1>SKOOLKIT รวบรวมเครื่องมือและสื่อ <br>สำหรับการจัดการเรียนการสอนแบบ Active Learning</h1>
         </strong>
-        <v-row class="d-flex justify-center text-center">
-            <v-col v-for="item in icon" :key="item" jusitfy="center" cols="1">
+        <v-row class="d-flex text-center mt-1" justify="center" align="center">
+            <v-col v-for="item in icon" :key="item" cols="1" class="ma-4">
                     <v-img :src="item.img" max-width="100%" />
                     <h4 class="text-center">{{ item.text }}</h4>
             </v-col>
         </v-row>
         <v-img src="public\screen\รวม.png" />
     </v-container>
+
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile">
             <v-row align="center">
@@ -190,18 +195,11 @@
             <v-img v-for="item in subject2" :key="item" :src="item.img" width="20%" contain />
     </div>
 
-    <div id="example">
-    <carousel-3d :disable3d="true" :space="365" :clickable="false" :controls-visible="true">
-        <slide v-for="(img, i) in subject1" :key="i">
-        <span class="title">You know</span>
-        <p>You know, being a test pilot isn't always the healthiest business in the world.</p>
-        </slide>
-    </carousel-3d>
-    </div>
+
 
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile">
-            <v-card  tile color="#C4C4C4" class="mt-5">
+            <v-card  tile color="#C4C4C4" class="ma-16">
                 <v-row align="center">
                     <v-col cols="1" align="center">
                         <h1>"</h1>
@@ -238,26 +236,38 @@
     </v-container>
 
     <v-container>
-        <v-row v-if="!$vuetify.breakpoint.mobile">
+        <div v-if="!$vuetify.breakpoint.mobile" >
+        <v-row align="center">
             <v-col cols="4" justify="center" class="text-center">
                 <v-img src="\public\icon\undraw_Detailed_analysis_re_tk6j.png" />
+            </v-col>
+            <v-col cols="4" justify="center" class="text-center">
+                <v-img src="\public\icon\undraw_teacher_35j2.png" />
+            </v-col>
+            <v-col cols="4" justify="center" class="text-center">
+                <v-img src="\public\icon\undraw_true_friends_c94g.png" />
+            </v-col>
+        </v-row>
+    <v-row align="center">
+            <v-col cols="4" justify="center" class="text-center">
                 <strong><p>ผู้อำนวยการโรงเรียน<br>และฝ่ายบริหารต่างๆ</p></strong>
                 <br>
                 <p>ยกระดับสถานศึกษาของท่านด้วยแพลตฟอร์มที่ตอบโจทย์ นโยบายการศึกษาประจำปี 2564 ( 5 จาก 12 นโยบาย )ได้แก่ ข้อ 1, 2, 3, 10 และ 12</p>
             </v-col>
             <v-col cols="4" justify="center" class="text-center">
-                <v-img src="\public\icon\undraw_teacher_35j2.png" />
+                
                 <strong><p>คุณครูประจำรายวิชา หรือคุณครูประจำชั้น</p></strong>
                 <br>
                 <p> คุณครูสามารถจัดการเรียนการสอนแบบ Active Learning ช่วยส่งเสริมการจัดการเรียนการสอนอย่างมีประสิทธิภาพมากยิ่งขึ้นและยังติดตามผลการเรียนของนักเรียนรายบุคคลได้แบบ 100 % </p>
             </v-col>
             <v-col cols="4" justify="center" class="text-center">
-                <v-img src="\public\icon\undraw_true_friends_c94g.png" />
+                
                 <strong><p>นักเรียน</p></strong>
                 <br>
                 <p>นักเรียนได้ฝึกทักษะแห่งศตวรรษที่ 21 เริ่มต้นจากการมีส่วนร่วมในการเรียนรู้สนุกสนานจากกิจกรรมในห้องเรียนและยังทราบจุดแข็ง จุดอ่อนของตนเองซึ่งส่งผลต่อการพัฒนาการเรียนรู้ของตนเอง</p>
             </v-col>
-        </v-row>
+    </v-row>
+        </div>
         <v-row v-else>
             <v-col justify="center" class="text-center">
                 <v-img src="\public\icon\undraw_Detailed_analysis_re_tk6j.png" />
@@ -282,7 +292,7 @@
 
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile">
-            <v-card  tile color="#C4C4C4" class="mt-1">
+            <v-card  tile color="#C4C4C4" class="ma-16">
                 <v-row align="center">
                     <v-col cols="1" align="center">
                         <h1>"</h1>
@@ -319,8 +329,8 @@
     </v-container>
 
     <v-container>
-        <div align="center">
-            <v-btn color="#DB2C27" class="rounded-lg" large dark>ทดลองใช้งานฟรี</v-btn>
+        <div align="center" class="mb-16">
+            <v-btn color="#DB2C27" class="rounded-lg" x-large dark>ทดลองใช้งานฟรี</v-btn>
         </div>
     </v-container>
 
@@ -343,14 +353,21 @@
                         <strong><p>ติดต่อเรา</p></strong>
                     </v-col>
                     <v-col>
-                        <p>SKOOLKIT</p>
+                        <v-icon color="white" class="ma-1">mdi-facebook</v-icon>
+                        SKOOLKIT
                     </v-col>
                     <v-col>
-                        <p>Contact@skoolkit.to</p>
+                        <v-icon color="white" class="ma-1">mdi-email</v-icon>
+                        Contact@skoolkit.to
                     </v-col>
                     <v-col>
-                        <p>063-2329154</p>
-                        <p>092-9529726</p>
+                        <v-row>
+                                <v-icon color="white" >mdi-phone-outline</v-icon>
+                            <v-col>
+                                <p>063-2329154</p>
+                                <p>092-9529726</p>
+                            </v-col>
+                        </v-row>
                     </v-col>
                 </v-col>
                 <v-col cols="4">
@@ -365,37 +382,24 @@
         </v-container>
     </v-footer>
     <v-footer v-else color="black" class="white--text">
-            <v-col>
-                <v-col>
-                    <p>คุณสมบัติ</p>
-                </v-col>
-                <v-col>
-                    <p>บทความ</p>
-                </v-col>
-                <v-col>
-                    <p>ทดลองการใช้งาน</p>
-                </v-col>
-            </v-col>
-            <v-col>
+
+            <v-row justify="center" class="ma3">
                 <v-col>
                     <strong><p>ติดต่อเรา</p></strong>
-                </v-col>
-                <v-col>
+                    <v-icon color="white" class="ma-1">mdi-facebook</v-icon>
                     <p>SKOOLKIT</p>
-                </v-col>
-                <v-col>
+                    <v-icon color="white" class="ma-1">mdi-email</v-icon>
                     <p>Contact@skoolkit.to</p>
-                </v-col>
-                <v-col>
+                    <v-icon color="white" >mdi-phone-outline</v-icon>
                     <p>063-2329154</p>
                     <p>092-9529726</p>
                 </v-col>
-            </v-col>
-            <v-col>
-                <strong><p>เกี่ยวกับเรา</p></strong>
-                <img src="/public/BWlogocut.png" alt="" width=70%>
-                <p>บริษัท เดอะแฟลชโซลูชั่น จำกัด สำนักงานเลขที่ 401/62 หมู่ 3 ตำบลคูคต อำเภอลำลูกกา จังหวัดปทุมธานี รหัสไปรณีย์ 12130</p>
-            </v-col>
+            </v-row>
+            <v-row align="center">
+                    <strong><p>เกี่ยวกับเรา</p></strong>
+                    <img src="/public/BWlogocut.png" alt="" width=70%>
+                    <p>บริษัท เดอะแฟลชโซลูชั่น จำกัด สำนักงานเลขที่ 401/62 หมู่ 3 ตำบลคูคต อำเภอลำลูกกา จังหวัดปทุมธานี รหัสไปรณีย์ 12130</p>
+            </v-row>
             <v-container>
                 <h6>Copyright ©2021 SKOOLKIT All Right Reserved</h6>
             </v-container>
@@ -469,10 +473,7 @@ export default {
             ]
         }
     },
-    components: {
-        'carousel-3d': window['carousel-3d'].Carousel3d,
-        'slide': window['carousel-3d'].Slide
-    }
+  
 }
 </script>
 
@@ -482,14 +483,24 @@ export default {
     text-align: center;
     margin: 0px;
 }
-.tabs p{
+.tabs p, h5{
     color: white;
 }
-.tabs:hover p{
+.tabs:hover p, :hover h5{
     cursor: pointer;
     color: #DB2C27;
 }
 .video{
     position: absolute;
+}
+.space{
+    margin-top: 90px ;
+}
+.smallspace{
+    margin-top:80px ;
+    justify-items: center;
+}
+.bigfont p{
+    font-size: 49px;
 }
 </style>
