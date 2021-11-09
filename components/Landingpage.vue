@@ -134,7 +134,7 @@
             </v-col>
         </v-row>
         <v-row v-else class="d-flex text-center mt-1" justify="center" align="center">
-            <v-col v-for="item in icon" :key="item" cols="3" class="ma-4">
+            <v-col v-for="item in icon" :key="item" cols="2" class="ma-4">
                     <v-img :src="item.img" max-width="100%" />
                     <h4 class="text-center">{{ item.text }}</h4>
             </v-col>
