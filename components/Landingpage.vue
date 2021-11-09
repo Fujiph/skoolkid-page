@@ -20,7 +20,7 @@
                         </v-col>
                         <v-col cols="2"/>
                         <v-col class="tabs" cols="1">
-                            <h5>เข้าร่วมควิช</h5>
+                            <p>ลงทะเบียน</p>
                         </v-col>
                         <v-col cols="1">
                             <v-btn color="#DB2C27" class="rounded-lg" large dark>เข้าสู่ระบบ</v-btn>
@@ -55,22 +55,39 @@
     </div>
     <div v-else> <!-- for mobile -->
             <!-- <div style="position: relative;" fluid> -->
-            <!-- <v-container style="position: absolute; z-index: 1" fluid> -->
-                <v-alert width=100%  color="#DB2C27" class='top'>
-                    <h4 class="white--text">เข้าร่วมกิจกรรม Workshop เพื่อร่วมเป็นหนึ่งในการพัฒนานวัตกรรมการศึกษา <u>คลิกที่นี่</u></h4>
-                </v-alert>
+            <v-container style="position: absolute; z-index: 1" fluid>
                 <v-container>
-                    <img src="/public/logocut.png" width="100%" />
-                    <v-row align="center">
-        
+                    <v-row>
+                        <v-col justify="start" cols="8">
+                            <img src="/public/logocut.png" width="100%" />
+                        </v-col>
                         <v-col />
                         <v-col>
-                            <p class="tabs">เข้าร่วมควิช</p>
-                            <br>
-                            <v-btn color="#DB2C27" class="rounded-lg" large dark>เข้าสู่ระบบ</v-btn>
-                            <br>
-                            <v-btn class="ma-2" outlined color="white">En</v-btn>
+                            <v-menu bottom offset-y>
+                                <template v-slot:activator="{ on, attrs }">
+                            <v-icon color="white" large v-bind="attrs" v-on="on">
+                                mdi-menu
+                            </v-icon>
+                                </template>
+                                <v-list>
+                                <v-list-item @click="() => {}">
+                                    <v-list-item-title>คุณสมบัติ</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item @click="() => {}">
+                                    <v-list-item-title>บทความ</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item @click="() => {}">
+                                    <v-list-item-title>ทดลองการใช้งาน</v-list-item-title>
+                                </v-list-item>
+                                </v-list>
+                            </v-menu>
                         </v-col>
+                    </v-row>
+                    <v-row align="center" justify="center">
+                        <div class="tabs ma-3">
+                            <p>ลงทะเบียน</p>
+                        </div>
+                        <v-btn color="#DB2C27" class="rounded-lg" dark>เข้าสู่ระบบ</v-btn>
                     </v-row>
                 </v-container>
                 <v-container justify="center">
@@ -83,9 +100,9 @@
                         </v-col>
                     </v-row>
                 </v-container>
-            <!-- </v-container> -->
+            </v-container>
         <!-- </div> -->
-        <!-- <video src="/public/video1.mov" style="position: relative;" width="100%" autoplay/> -->
+        <video src="/public/video1.mov" style="position: relative;" width="1500px" autoplay/>
     </div>
 
     <v-container>
@@ -98,7 +115,7 @@
         </div>
         <div v-else>
             <v-row class="d-flex text-center mt-1" justify="center" align="center">
-                <v-col v-for="item in pic" :key="item" cols="1">
+                <v-col v-for="item in pic" :key="item" cols="3">
                     <v-img :src="item.img" max-width="100%" />
                 </v-col>
             </v-row>
@@ -109,8 +126,15 @@
         <strong>
         <h1>SKOOLKIT รวบรวมเครื่องมือและสื่อ <br>สำหรับการจัดการเรียนการสอนแบบ Active Learning</h1>
         </strong>
-        <v-row class="d-flex text-center mt-1" justify="center" align="center">
+
+        <v-row v-if="!$vuetify.breakpoint.mobile" class="d-flex text-center mt-1" justify="center" align="center">
             <v-col v-for="item in icon" :key="item" cols="1" class="ma-4">
+                    <v-img :src="item.img" max-width="100%" />
+                    <h4 class="text-center">{{ item.text }}</h4>
+            </v-col>
+        </v-row>
+        <v-row v-else class="d-flex text-center mt-1" justify="center" align="center">
+            <v-col v-for="item in icon" :key="item" cols="3" class="ma-4">
                     <v-img :src="item.img" max-width="100%" />
                     <h4 class="text-center">{{ item.text }}</h4>
             </v-col>
@@ -188,13 +212,20 @@
         <h1>และบทเรียนอีกมากมาย</h1>
         <p>รวมเนื้อหาในชั้นเรียน และข้อสอบจากสนามต่าง ๆ<br>สามารถกลับไปทบทวนย้อนหลังได้ทุกที่ ทุกเวลา</p>
     </v-container>
-    <div class="d-flex flex-row" circle>
+    <div class="d-flex flex-row">
             <v-img v-for="item in subject1" :key="item" :src="item.img" width="14%" contain />
     </div>
-    <div class="d-flex flex-row" circle>
+    <div class="d-flex flex-row">
             <v-img v-for="item in subject2" :key="item" :src="item.img" width="20%" contain />
     </div>
 
+      <!-- <carousel-3d :disable3d="true" :space="365" :clickable="false" autoplay='true' :autoplayTimeout='0' :animationSpeed='50'>
+        <slide v-for="(slide, i) in 2" :key="i">
+            <div class="d-flex flex-row">
+                <v-img v-for="item in subject1" :key="item" :src="item.img" width="14%" contain />
+            </div>
+        </slide>
+    </carousel-3d> -->
 
 
     <v-container>
@@ -472,7 +503,7 @@ export default {
                 { img:"/public/subject/16.png" }
             ]
         }
-    },
+    }
   
 }
 </script>
