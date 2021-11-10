@@ -2,10 +2,10 @@
 <div>
     <!-- top of page -->
     <div v-if="!$vuetify.breakpoint.mobile" style="position: absloute;" fluid>
-            <v-container style="position: absolute; z-index: 1" fluid>
-                <v-alert width=100%  color="#DB2C27" class='top'>
+            <v-alert width=100%  color="#DB2C27" class='top'>
                     <h4 class="white--text">เข้าร่วมกิจกรรม Workshop เพื่อร่วมเป็นหนึ่งในการพัฒนานวัตกรรมการศึกษา <u>คลิกที่นี่</u></h4>
-                </v-alert>
+            </v-alert>
+            <v-container style="position: absolute; z-index: 1" fluid>
                 <v-container>
                     <v-row align="center" class="d-flex">
                         <img src="/public/logocut.png" class="cursor:pointer;" width="20%" />
@@ -84,8 +84,8 @@
                         </v-col>
                     </v-row>
                     <v-row align="center" justify="center">
-                        <div class="tabs ma-3">
-                            <p>ลงทะเบียน</p>
+                        <div class="white--text ma-3">
+                            ลงทะเบียน
                         </div>
                         <v-btn color="#DB2C27" class="rounded-lg" dark>เข้าสู่ระบบ</v-btn>
                     </v-row>
@@ -106,7 +106,7 @@
     </div>
 
     <v-container>
-        <div v-if="!$vuetify.breakpoint.mobile" class="d-flex">
+        <div v-if="!$vuetify.breakpoint.mobile">
             <v-row align="center" justify="center">
                 <v-col v-for="item in pic" :key="item" >
                         <v-img :src="item.img" max-width="120" class="ma-3" />
@@ -127,12 +127,18 @@
         <h1>SKOOLKIT รวบรวมเครื่องมือและสื่อ <br>สำหรับการจัดการเรียนการสอนแบบ Active Learning</h1>
         </strong>
 
-        <v-row v-if="!$vuetify.breakpoint.mobile" class="d-flex text-center mt-1" justify="center" align="center">
-            <v-col v-for="item in icon" :key="item" cols="1" class="ma-4">
-                    <v-img :src="item.img" max-width="100%" />
-                    <h4 class="text-center">{{ item.text }}</h4>
+    <div v-if="!$vuetify.breakpoint.mobile">
+        <v-row  class="d-flex mt-3" align="center" justify="center" >
+            <v-col v-for="item in icon" :key="item" cols="1">
+                    <v-img :src="item.img" width="80%" />
             </v-col>
         </v-row>
+        <v-row justify="center">
+            <v-col v-for="item in icon" :key="item" align="center" cols="1">
+                    <h4>{{ item.text }}</h4>
+            </v-col>
+        </v-row>
+    </div>
         <v-row v-else class="d-flex text-center mt-1" justify="center" align="center">
             <v-col v-for="item in icon" :key="item" cols="2" class="ma-4">
                     <v-img :src="item.img" max-width="100%" />
@@ -219,7 +225,7 @@
             <v-img v-for="item in subject2" :key="item" :src="item.img" width="20%" contain />
     </div>
 
-      <!-- <carousel-3d :disable3d="true" :space="365" :clickable="false" autoplay='true' :autoplayTimeout='0' :animationSpeed='50'>
+    <!-- <carousel-3d :disable3d="true" :space="365" :clickable="false" autoplay='true' :autoplayTimeout='0' :animationSpeed='50'>
         <slide v-for="(slide, i) in 2" :key="i">
             <div class="d-flex flex-row">
                 <v-img v-for="item in subject1" :key="item" :src="item.img" width="14%" contain />
@@ -263,7 +269,7 @@
     </v-container>
 
     <v-container class="text-center">
-        <h1> การเรียนรู้เกิดขึ้นได้ตลอดเวลา <br> SKOOLKIT จึงเหมาะกับทุกคน</h1>
+        <h1>การเรียนรู้เกิดขึ้นได้ตลอดเวลา <br> SKOOLKIT จึงเหมาะกับทุกคน</h1>
     </v-container>
 
     <v-container>
