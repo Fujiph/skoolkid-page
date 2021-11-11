@@ -218,20 +218,32 @@
         <h1>และบทเรียนอีกมากมาย</h1>
         <p>รวมเนื้อหาในชั้นเรียน และข้อสอบจากสนามต่าง ๆ<br>สามารถกลับไปทบทวนย้อนหลังได้ทุกที่ ทุกเวลา</p>
     </v-container>
-    <div class="d-flex flex-row">
+    <!-- <div class="d-flex flex-row">
             <v-img v-for="item in subject1" :key="item" :src="item.img" width="14%" contain />
     </div>
     <div class="d-flex flex-row">
             <v-img v-for="item in subject2" :key="item" :src="item.img" width="20%" contain />
+    </div> -->
+
+    <div>
+        <VueSlickCarousel  :autoplay="true" :speed="25000">
+            <div v-for="i in 2" :key="i">
+                <div class="d-flex flex-row">
+                        <v-img v-for="item in subject1" :key="item" :src="item.img" width="14%" contain />
+                </div>
+            </div>
+        </VueSlickCarousel>
     </div>
 
-    <!-- <carousel-3d :disable3d="true" :space="365" :clickable="false" autoplay='true' :autoplayTimeout='0' :animationSpeed='50'>
-        <slide v-for="(slide, i) in 2" :key="i">
-            <div class="d-flex flex-row">
-                <v-img v-for="item in subject1" :key="item" :src="item.img" width="14%" contain />
+    <div>
+        <VueSlickCarousel  :autoplay="true" :speed="20000">
+            <div v-for="i in 2" :key="i">
+                <div class="d-flex flex-row">
+                        <v-img v-for="item in subject2" :key="item" :src="item.img" width="20%" contain />
+                </div>
             </div>
-        </slide>
-    </carousel-3d> -->
+        </VueSlickCarousel>
+    </div>
 
 
     <v-container>
@@ -445,7 +457,14 @@
 </template>
 
 <script>
+import VueSlickCarousel from 'vue-slick-carousel'
+  import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+  // optional style for arrows & dots
+  import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+
 export default {
+    name: 'MyComponent',
+    components: { VueSlickCarousel },
     data() {
         return{
             tabs:[
