@@ -26,7 +26,7 @@
                             <v-btn color="#DB2C27" class="rounded-lg" large dark>เข้าสู่ระบบ</v-btn>
                         </v-col>
                         <v-col cols="1">
-                            <v-btn class="ma-5" outlined color="white">En</v-btn>
+                            <v-btn class="ma-5" outlined color="white">TH</v-btn>
                         </v-col>
                     </v-row>
                 </v-container>
@@ -102,14 +102,14 @@
                 </v-container>
             </v-container>
         <!-- </div> -->
-        <video src="/public/video1.mov" style="position: relative;" width="1500px" autoplay/>
+        <video src="/public/video1.mov" style="position: relative;" width="1200px" autoplay/>
     </div>
 
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile">
             <v-row align="center" justify="center">
                 <v-col v-for="item in pic" :key="item" >
-                        <v-img :src="item.img" max-width="120" class="ma-3" />
+                        <v-img :src="item.img" max-width="100" class="ma-3" />
                 </v-col>
             </v-row>
         </div>
@@ -139,12 +139,14 @@
             </v-col>
         </v-row>
     </div>
-        <v-row v-else class="d-flex text-center mt-1" justify="center" align="center">
-            <v-col v-for="item in icon" :key="item" cols="2" class="ma-4">
+    <div v-else>
+        <v-row class="d-flex text-center mt-1" justify="center" align="center">
+            <v-col v-for="item in icon" :key="item" cols="3">
                     <v-img :src="item.img" max-width="100%" />
                     <h4 class="text-center">{{ item.text }}</h4>
             </v-col>
         </v-row>
+    </div>
         <v-img src="public\screen\รวม.png" />
     </v-container>
 
@@ -248,15 +250,15 @@
 
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile">
-            <v-card  tile color="#C4C4C4" class="ma-16">
-                <v-row align="center">
-                    <v-col cols="1" align="center">
-                        <h1>"</h1>
+            <v-card color="#C4C4C4" class="ma-16">
+                <v-row align="center" justify="center">
+                    <v-col cols="1">
+                        <img src="\public\icon\Vector.png" />
                     </v-col>
                     <v-col justify="center" cols="4">
-                        <v-img src="\public\review\รูปภาพ1.png" />
+                            <v-img src="\public\review\รูปภาพ1.png" />
                     </v-col>
-                    <v-col justify="center" cols="6">
+                    <v-col justify="center" cols="5">
                         <strong><h2>แพลตฟอร์มทำให้นักเรียนตั้งใจเรียนขึ้น ได้มากเลยทีเดียว เพราะเด็กๆสนใจสื่อ ประเภทนี้มาก</h2></strong>
                         <br>
                         <p>คุณครู กฤตภัทร อรุณดี , ได้รับรางวัล OBEC AWARD 2019</p>
@@ -342,14 +344,14 @@
     <v-container>
         <div v-if="!$vuetify.breakpoint.mobile">
             <v-card  tile color="#C4C4C4" class="ma-16">
-                <v-row align="center">
-                    <v-col cols="1" align="center">
-                        <h1>"</h1>
+                <v-row align="center" justify="center">
+                    <v-col cols="1">
+                        <img src="\public\icon\Vector.png" />
                     </v-col>
-                    <v-col justify="center" cols="4">
+                    <v-col cols="5">
                         <v-img src="\public\review\รูปภาพ2.png" />
                     </v-col>
-                    <v-col justify="center" cols="6">
+                    <v-col cols="4">
                         <strong><h2>บางทีเราก็ลืมนึกถึงจิตใจเด็กๆ เพราะเรามุ่งแต่จะสอนให้จบ จนมองข้ามหัวใจของเด็กไป</h2></strong>
                         <br>
                         <p>ว่าที่ ร.ต.หญิง คุณครู อธิชญาณ์ ไข่สังข์ ปานะโปย หัวหน้าช่วงชั้นที่ 1 </p>
@@ -431,8 +433,7 @@
         </v-container>
     </v-footer>
     <v-footer v-else color="black" class="white--text">
-
-            <v-row justify="center" class="ma3">
+            <v-row justify="center" class="ma-3">
                 <v-col>
                     <strong><p>ติดต่อเรา</p></strong>
                     <v-icon color="white" class="ma-1">mdi-facebook</v-icon>
@@ -444,12 +445,14 @@
                     <p>092-9529726</p>
                 </v-col>
             </v-row>
-            <v-row align="center">
-                    <strong><p>เกี่ยวกับเรา</p></strong>
-                    <img src="/public/BWlogocut.png" alt="" width=70%>
-                    <p>บริษัท เดอะแฟลชโซลูชั่น จำกัด สำนักงานเลขที่ 401/62 หมู่ 3 ตำบลคูคต อำเภอลำลูกกา จังหวัดปทุมธานี รหัสไปรณีย์ 12130</p>
+            <v-row justify="center" class="ma-3">
+                    <v-col>
+                        <strong><p>เกี่ยวกับเรา</p></strong>
+                        <v-img src="/public/BWlogocut.png" width="30%" />
+                        <p>บริษัท เดอะแฟลชโซลูชั่น จำกัด <br> สำนักงานเลขที่ 401/62 หมู่ 3 ตำบลคูคต <br> อำเภอลำลูกกา จังหวัดปทุมธานี <br> รหัสไปรณีย์ 12130</p>
+                    </v-col>
             </v-row>
-            <v-container>
+            <v-container class="text-center">
                 <h6>Copyright ©2021 SKOOLKIT All Right Reserved</h6>
             </v-container>
     </v-footer>
@@ -473,12 +476,14 @@ export default {
                 { tab:"ทดลองการใช้งาน" }
             ],
             pic:[
-                { img:"/public/other/depa.png" },
+                { img:"/public/other/StartupTH.png" },
                 { img:"/public/other/DES.png" },
-                { img:"/public/other/kris.png" },
+                { img:"/public/other/NIA.jpg" },
+                { img:"/public/other/depa.png" },
+
                 { img:"/public/other/SYSI.png" },
                 { img:"/public/other/sss.png" },
-                { img:"/public/other/StartupTH.png" },
+                { img:"/public/other/kris.png" },
                 { img:"/public/other/STeP.png" }
             ],
             icon:[
@@ -558,5 +563,8 @@ export default {
 }
 .bigfont p{
     font-size: 49px;
+}
+.change-font p{
+    font-family: 'Courier New', Courier, monospace;
 }
 </style>
